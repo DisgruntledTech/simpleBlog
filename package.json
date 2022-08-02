@@ -1,0 +1,15 @@
+{
+  "name": "simpleblog",
+  "version": "1.0.0",
+  "description": "JavaScript based simple blog server to serve mostly static blog content and store blog entries as html files or as json data files.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Blog"
+  ],
+  "author": "Mike Starcher",
+  "license": "ISC"
+}
