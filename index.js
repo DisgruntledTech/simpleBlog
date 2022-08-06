@@ -17,6 +17,9 @@ const server = http.createServer((req, res) => {
     case "":
       //do something
       break;
+    case "index":
+      //do something
+      break;
   }
 
   res.statusCode = 200
