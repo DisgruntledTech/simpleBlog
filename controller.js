@@ -1,6 +1,6 @@
 //Single controller for the entire app...keep it small :)
 //https://nodejs.dev/learn/nodejs-file-paths
-
+const fs = require('fs');
 
 function index(){
     //Handles the main blog loop on the front page.
@@ -13,7 +13,7 @@ function index(){
         console.error(err);
         return;
     }
-        Response = data;
+        return data;
     });
     
     
@@ -21,43 +21,69 @@ function index(){
 
 function post(){
     //Read a post and write to the response object.
-
-    return "something"
-}
-
-function page(){
-    //Read a page and write to the response object.
-
-    return "something"
-}
-
-//Not Exported
-
-function readFile(readPath){
-    const fs = require('fs');
-
-    fs.readFile(readPath, 'utf8', (err, data) => {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    return data;
-    });
     
+    return "something"
 }
 
-function writeFile(writePath, fileData){
-    const fs = require('fs');
+function createPost(postbody){
+    //Process new post
+    
+    //const postJSON = JSON.parse(postbody);
+    const postJSON = JSON.parse(postbody);
+    const postModel = {};
+    const posttime = new Date();
+    const postfilename = `post_${Date.now()}.json`;
+    const articlePath = `Posts/${postfilename}`;
+    
+    postModel.Headline = postJSON.Headline;
+    postModel.Title = postJSON.Title;
+    postModel.Author = postJSON.Author;
+    postModel.Slug = postJSON.Title.replace(" ","_");
+    postModel.dateCreated = posttime;
+    postModel.lastUpdated = posttime;
+    postModel.LocalePostDate = postJSON.LocalePostDate;
+    postModel.ArticleContent = postJSON.ArticleContent;
 
-const content = fileData;
+    postbody = JSON.stringify(postModel);
 
-fs.writeFile('/Users/joe/test.txt', content, err => {
-  if (err) {
-    console.error(err);
-  }
-  // file written successfully
-});
+    fs.writeFile(articlePath, postbody, (err) => {
+        if(err){
+            console.log('error writing file')                
+            return 0;
+        }
+        
+        return 1;
+    });
+
+return 0;
 
 }
 
-module.exports = {index, post, page};
+function attractiveDate(){
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime
+
+    const nowDate = new Date();
+    
+    var nowHours = nowDate.getHours();
+    if(nowDate.getHours()>12){
+        nowHours = nowHours - 12;
+    }
+
+    var nowMinutes = nowDate.getMinutes();
+    if(nowDate.getMinutes() < 10){
+        nowMinutes = `0${nowMinutes}`;
+    }
+
+    let meridiemIndicator = "AM"
+    if(nowDate.getHours()> 11){
+        meridiemIndicator="PM"
+    };
+
+    let readableDate = `${nowDate.getMonth()+1}/${nowDate.getDate()}/${nowDate.getFullYear()} ${nowHours}:${nowMinutes} ${meridiemIndicator}`;
+
+    return readableDate;
+}
+
+
+
+module.exports = {index, post, createPost};

@@ -37,110 +37,49 @@
     <div class="container">
       <div class="row">        
         <div class="col-12">
-          <h1>Update User</h1>
+          <h1>Manage Posts</h1>
           <div class="accordion" id="accordionPanelsStayOpenExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                  User Profile
+                  New Post
                 </button>
               </h2>
               <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
-                    <form class="row g-3" name="requesterInformation1" id="requesterInformation1" action="Update">
+                    <form class="row g-3" name="newpost" id="newpost">
                         <div class="col-md-6">
-                          <label for="inputEmail4" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="inputEmail4" required maxlength="200" spellcheck="false" value="Customer.Name@gmail.com">
+                          <label for="authoremail" class="form-label">Author Email</label>
+                          <input type="email" class="form-control" name="authoremail" id="authoremail" required maxlength="200" spellcheck="false" placeholder="Author Email">
                         </div>
                         <div class="col-md-6">
-                          <label for="inputPassword4" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="inputNamed" required maxlength="200" spellcheck="false" value="Customer Name Jr.">
+                          <label for="author" class="form-label">Author Name</label>
+                          <input type="text" class="form-control" name="author" id="author" required maxlength="200" spellcheck="false" placeholder="Author Name">
                         </div>
                         <div class="col-12">
-                          <label for="inputAddress" class="form-label">Address</label>
-                          <input type="text" class="form-control" id="inputAddress" maxlength="200" spellcheck="false" placeholder="1234 Main St" value="1234 Main St">
+                          <label for="headline" class="form-label">Headline</label>
+                          <input type="text" class="form-control" name="headline" id="headline" maxlength="200" spellcheck="true" placeholder="Headline">
                         </div>
                         <div class="col-12">
-                          <label for="inputAddress2" class="form-label">Address 2</label>
-                          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                          <label for="posttitle" class="form-label">Title</label>
+                          <input type="text" class="form-control" name="posttitle" id="posttitle" maxlength="200" spellcheck="true" placeholder="Article Title">
                         </div>
-                        <div class="col-md-6">
-                          <label for="inputCity" class="form-label">City</label>
-                          <input type="text" class="form-control" id="inputCity" maxlength="100" spellcheck="false" value="Gothum">
+                        <div class="col-md-12">
+                          <label for="slug" class="form-label">Slug</label>
+                          <input type="text" class="form-control" name="slug" id="slug" maxlength="250" spellcheck="false" placeholder="Slug">
                         </div>
-                        <div class="col-md-4">
-                          <label for="inputState" class="form-label">State</label>
-                          <input type="text" class="form-control" id="inputState" maxlength="2" value="FL">
-                        </div>
-                        <div class="col-md-2">
-                          <label for="inputZip" class="form-label">Zip</label>
-                          <input type="text" class="form-control" id="inputZip1" maxlength="15" value="22619">                          
+                        <div class="col-md-12">
+                          <label for="articlecontent" class="form-label">Article Content</label>
+                          <textarea name="articlecontent" id="articlecontent" class="form-control" spellcheck="true" rows="5"></textarea>
                         </div>
                         
                         <div class="col-12">
-                          <button type="submit" class="btn btn-primary">Update</button>
+                          <button type="button" class="btn btn-primary" onclick="submitpost();">Submit Post</button>
                         </div>
                       </form>
                 </div>
               </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                  Public Profile
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                <div class="accordion-body">
-                  <form class="row g-3" name="requesterInformation" action="Update">
-                    <div class="col-md-6">
-                      <label for="inputEmail4" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="inputEmail4" required maxlength="200" spellcheck="false" value="Customer.Name@gmail.com">
-                    </div>
-                    <div class="col-md-6">
-                      <label for="inputPassword4" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="inputNamed" required maxlength="200" spellcheck="false" value="Customer Name Jr.">
-                    </div>
-                    <div class="col-12">
-                      <label for="inputAddress" class="form-label">Address</label>
-                      <input type="text" class="form-control" id="inputAddress" maxlength="200" spellcheck="false" placeholder="1234 Main St" value="1234 Main St">
-                    </div>
-                    <div class="col-12">
-                      <label for="inputAddress2" class="form-label">Address 2</label>
-                      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                    </div>
-                    <div class="col-md-6">
-                      <label for="inputCity" class="form-label">City</label>
-                      <input type="text" class="form-control" id="inputCity" maxlength="100" spellcheck="false" value="Gothum">
-                    </div>
-                    <div class="col-md-4">
-                      <label for="inputState" class="form-label">State</label>
-                      <input type="text" class="form-control" id="inputState" maxlength="2" value="FL">
-                    </div>
-                    <div class="col-md-2">
-                      <label for="inputZip" class="form-label" name="inputZip" id="inputZip">Zip</label>
-                      <input type="text" class="form-control" id="inputZip" maxlength="15" value="22619">
-                    </div>
-                    
-                    <div class="col-12">
-                      <button type="submit" class="btn btn-primary">Update</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                  User Bio
-                </button>
-              </h2>
-              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                <div class="accordion-body">
-                  <p id="zoo">Node.js developer and Javascript artisan.</p>
-                </div>
-              </div>
-            </div>
+            </div>            
           </div>
         </div>
       </div>
@@ -149,25 +88,46 @@
         <div class="container">
             <ul>
               <li>Node.js Site</li>
-              <li>Github.com</li>
+              <li>Github.com</li>              
             </ul>
         </div>
     </footer>
   </body>
-  <!-- <script type="text/javascript">        
-    fetch("http://127.0.0.1:3000/Posts/test.json")
-    .then((response) => {
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        throw new TypeError("Oops, we haven't got JSON!");
-      }
-      return response.json();
-    })
-    .then((data) => {
-        /* process your data further */
+
+  <script type="text/javascript">
+    // fetch('http://127.0.0.1:3000/Posts/test.json')
+    //   .then((response) => response.json())      
+    //   .then((data) => {
+    //     // document.getElementById("zoo").innerHTML = data.Headline
+    //     // document.getElementById("author").innerHTML = data.Author        
+    //   });
+     
+      
+      function submitpost(){
+        const newpost = {"Headline":"","Title":"","Slug":"","Author":"", "AuthorEmail":"", "ArticleContent":"", "LocalePostDate":""};
         
-        document.getElementById("main").innerHTML = data.blogName;
-    })
-    .catch((error) => console.error(error));
-  </script> -->
+        newpost.Headline = document.getElementById("headline").value;
+        newpost.Title = document.getElementById("posttitle").value;
+        newpost.Slug = document.getElementById("slug").value;
+        newpost.Author = document.getElementById("author").value;
+        newpost.AuthorEmail = document.getElementById("authoremail").value;
+        newpost.ArticleContent = document.getElementById("articlecontent").value;
+        newpost.LocalePostDate = new Date();  
+
+        fetch('http://127.0.0.1:3000/Posts', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body:JSON.stringify(newpost)
+        });
+
+        console.log(newpost);
+        
+      }
+      
+      
+
+  </script>
+
+
+
 </html>
