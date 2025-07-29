@@ -14,19 +14,7 @@ const port = 3000
 
 
 const server = http.createServer((req, res) => {
-  //console.log(req.headers)
-  //console.log(req.headers.cookie)
-  //const responcedoc = controller.index();
-  //What do they want?
-  // console.log(req.url);  
-  // const jPath = req.url; //`Posts/${req.url}`;
-  // console.log(jPath);
-  // const rPath =req.url.toString().toLowerCase();
-  //const rPath =req.url.toString();
-  //const jPath = req.url.toString();
-  // console.log(rPath);  
-  // console.log(path.basename(rPath));
-  
+ 
   var body = "";
   req.on('data', function (chunk) {
     body += chunk;
